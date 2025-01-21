@@ -26,25 +26,25 @@
 # print(max_num(5, 21, 77))
 
 # 8
-add = lambda x, y: x + y
-subtract = lambda x, y: x - y
-multiply = lambda x, y: x * y
-divide = lambda x, y: x / y
-
-keywords = {
-    'add': add,
-    'subtract': subtract,
-    'multiply': multiply,
-    'divide': divide
-}
-
-while True:
-    numbers = input("Enter two numbers separated by space:              (Just enter to exit)").split()
-    if numbers == []: break
-    do = input("Enter what to do: ")
-
-    result = keywords[do](int(numbers[0]), int(numbers[1]))
-    print(result)
+# add = lambda x, y: x + y
+# subtract = lambda x, y: x - y
+# multiply = lambda x, y: x * y
+# divide = lambda x, y: x / y
+#
+# keywords = {
+#     'add': add,
+#     'subtract': subtract,
+#     'multiply': multiply,
+#     'divide': divide
+# }
+#
+# while True:
+#     numbers = input("Enter two numbers separated by space:              (Just enter to exit)").split()
+#     if numbers == []: break
+#     do = input("Enter what to do: ")
+#
+#     result = keywords[do](int(numbers[0]), int(numbers[1]))
+#     print(result)
 
 
 
