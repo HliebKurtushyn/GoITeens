@@ -2,7 +2,6 @@
 # temperatures_c = [36.6, 0, 50, 100]
 # temperatures_f = list(map(lambda temp: temp * 1.8 + 32, temperatures_c))
 # print(temperatures_f)
-from enum import unique
 
 # 2
 # numbers = [3 , 7, 34, 82]
