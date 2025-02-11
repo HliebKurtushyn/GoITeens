@@ -1,0 +1,40 @@
+{
+   "Currencies": {
+      "USD": {
+         "buy": 41.92,
+         "sell": 41.48
+      },
+      "EUR": {
+         "buy": 43.61,
+         "sell": 43.66
+      },
+      "PLN": {
+         "buy": 10.34,
+         "sell": 10.21
+      },
+      "CZK": {
+         "buy": 1.73,
+         "sell": 1.5
+      },
+      "GBP": {
+         "buy": 52.09,
+         "sell": 51.98
+      }
+   },
+   "Wallets": {
+      "User1": {
+         "Wallet1": {
+            "UAH": 4168.0
+         },
+         "Wallet2": {
+            "UAH": 17.0
+         }
+      },
+      "User2": {
+         "Wallet1": {
+            "UAH": 56.0
+         },
+         "Wallet2": {}
+      }
+   }
+}
