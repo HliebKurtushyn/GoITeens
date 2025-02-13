@@ -1,9 +1,6 @@
 {
-   "logged_user": null,
+   "logged_user": "Oleh",
    "User1": {
       "selected_wallet": "Wallet1"
-   },
-   "User2": {
-      "selected_wallet": ""
    }
 }

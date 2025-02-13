@@ -29,12 +29,6 @@
          "Wallet2": {
             "UAH": 17.0
          }
-      },
-      "User2": {
-         "Wallet1": {
-            "UAH": 56.0
-         },
-         "Wallet2": {}
       }
    }
 }
