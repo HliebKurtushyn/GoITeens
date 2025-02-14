@@ -200,16 +200,16 @@ def log_out(wallets, user, json_cfg):
 
 
 def choices(wallets, user, currencies, selected_wallet, json_cfg, logged, json_data, json_passwords):
-    print("\nChoose an action:")
-    print("1. Select wallet")
-    print("2. Convert UAH")
-    print("3. Convert your wallet balance")
-    print("4. Deposit money")
-    print("5. Withdraw money")
-    print("6. Log out")
-    print("7. Exit")
-
     while logged:
+        print("\nChoose an action:")
+        print("1. Select wallet")
+        print("2. Convert UAH")
+        print("3. Convert your wallet balance")
+        print("4. Deposit money")
+        print("5. Withdraw money")
+        print("6. Log out")
+        print("7. Exit")
+
         choice = input(": ")
 
         if choice == "1":
@@ -243,11 +243,10 @@ def choices(wallets, user, currencies, selected_wallet, json_cfg, logged, json_d
             log_out(wallets, user, json_cfg)
             logged = False
             print("Logging out...")
-            main()
 
         elif choice == "7":
             print("Exit...")
-            break
+            logged = False
 
         else:
             print("ERROR: Invalid choice! Try again.")
@@ -255,37 +254,40 @@ def choices(wallets, user, currencies, selected_wallet, json_cfg, logged, json_d
 
 # ---APP FUNCTION---
 def main():
-    json_data = load_from_json("data")
-    json_cfg = load_from_json("cfg")
-    json_passwords = load_from_json("passwords")
+    while True:
+        json_data = load_from_json("data")
+        json_cfg = load_from_json("cfg")
+        json_passwords = load_from_json("passwords")
 
-    user = json_cfg["logged_user"]
-    logged = True if json_cfg["logged_user"] is not None else False
-
-    currencies = json_data['Currencies']
-    selected_wallet = ""
-
-    if not logged:
-        start_screen(json_data['Wallets'], json_cfg, json_passwords, json_data)
         user = json_cfg["logged_user"]
-        dump_to_json("cfg", json_cfg)
+        logged = True if json_cfg["logged_user"] is not None else False
 
-    if user and json_cfg[user]["selected_wallet"]:
-        selected_wallet = json_cfg[user]["selected_wallet"]
+        currencies = json_data['Currencies']
+        selected_wallet = ""
 
-    if selected_wallet == "":
-        print(f"Your wallets: {', '.join([w for w in json_data['Wallets'][user] if w != 'Password'])}")
-        while True:
-            selected_wallet = input("Please, select one of your wallets: ")
-            if selected_wallet in json_data['Wallets'][user]:
-                print(f"Wallet {selected_wallet} selected!")
-                json_cfg[user]["selected_wallet"] = selected_wallet
-                dump_to_json("cfg", json_cfg)
-                break
-            else:
-                print("ERROR: Invalid wallet! Try again.")
+        if not logged:
+            start_screen(json_data['Wallets'], json_cfg, json_passwords, json_data)
+            user = json_cfg["logged_user"]
+            dump_to_json("cfg", json_cfg)
 
-    choices(json_data['Wallets'], user, currencies, selected_wallet, json_cfg, logged, json_data, json_passwords)
+        if user and json_cfg[user]["selected_wallet"]:
+            selected_wallet = json_cfg[user]["selected_wallet"]
+
+        if selected_wallet == "":
+            print(f"Your wallets: {', '.join([w for w in json_data['Wallets'][user] if w != 'Password'])}")
+            while True:
+                selected_wallet = input("Please, select one of your wallets: ")
+                if selected_wallet in json_data['Wallets'][user]:
+                    print(f"Wallet {selected_wallet} selected!")
+                    json_cfg[user]["selected_wallet"] = selected_wallet
+                    dump_to_json("cfg", json_cfg)
+                    break
+                else:
+                    print("ERROR: Invalid wallet! Try again.")
+
+        choices(json_data['Wallets'], user, currencies, selected_wallet, json_cfg, logged, json_data, json_passwords)
+        if not logged:
+            break
 
 
 if __name__ == "__main__":
