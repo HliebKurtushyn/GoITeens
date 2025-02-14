@@ -94,6 +94,9 @@ def deposit(wallets, selected_wallet, user, json_data, json_passwords):
 
 def withdraw(wallets, selected_wallet, user, json_data, json_passwords):
     if user in wallets and selected_wallet in wallets[user]:
+        if wallets[user][selected_wallet]["UAH"] < 1:
+            print("ERROR: Your balance is empty!")
+            return
         while True:
             withdraw_currency = input("Enter amount which you want to withdraw (MAX '100.000 UAH'):\n   ")
 
