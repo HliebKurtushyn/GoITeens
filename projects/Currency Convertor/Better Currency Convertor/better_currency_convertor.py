@@ -5,15 +5,14 @@ from random import choice
 
 # ---JSON---
 
-def dump_to_json(type, obj):
+def dump_to_json(type: str, obj: object):
     with open(f"Data files/{type}.json", "w") as file:
         json.dump(obj, file, indent=3)
 
 
-def load_from_json(type):
+def load_from_json(type: str):
     with open(f"Data files/{type}.json", "r") as file:
         return json.load(file)
-
 
 # ---JSON---
 
@@ -25,12 +24,12 @@ def clear_console():
         os.system('cls')
 
 
-def check_length(element, max_length):
+def check_length(element: object, max_length: int) -> bool:
     if max_length is not None:
         return False if len(str(element)) > max_length else True
 
 
-def convert(currencies, count=1.0):
+def convert(currencies: dict[str, int], count=1.0):
     print(f"{count} UAH in other currencies:")
     for currency, rates in currencies.items():
         buy_rate = rates["buy"]
@@ -38,7 +37,7 @@ def convert(currencies, count=1.0):
         print(f"    {currency}:    BUY: {count / buy_rate:.2f} | SELL: {count / sell_rate:.2f}")
 
 
-def convert_your_wallet(wallets, selected_wallet, user, currencies):
+def convert_your_wallet(wallets: dict[object, object], selected_wallet: str, user: str, currencies: dict[str, int]):
     if user in wallets and selected_wallet in wallets[user]:
         balance = wallets[user][selected_wallet].get("UAH", 0)
         print(f"Your converted wallet ({selected_wallet}):")
@@ -51,16 +50,7 @@ def convert_your_wallet(wallets, selected_wallet, user, currencies):
     else:
         print(f"ERROR: Wallet '{selected_wallet}' not found for user '{user}'.")
 
-
-# def add_new_wallet(name="New Wallet"):
-#     if user in wallets:
-#         wallets[user][name] = {}
-#         return "Wallet has been successfully added" if name in wallets[user] else "Something went wrong"
-#     else:
-#         return "ERROR: User {user} not found"
-
-
-def deposit(wallets, selected_wallet, user, json_data, json_passwords):
+def deposit(wallets: dict[object, object], selected_wallet: str, user: str, json_data: dict[object, object], json_passwords: dict[object, object]):
     if user in wallets and selected_wallet in wallets[user]:
         while True:
             dep_currency = input("Enter amount which you want to deposit (MAX '100.000 UAH'):\n   ")
@@ -92,7 +82,7 @@ def deposit(wallets, selected_wallet, user, json_data, json_passwords):
         print("ERROR: User or wallet is not found")
 
 
-def withdraw(wallets, selected_wallet, user, json_data, json_passwords):
+def withdraw(wallets: dict[object, object], selected_wallet: str, user: str, json_data: dict[object, object], json_passwords: dict[object, object]):
     if user in wallets and selected_wallet in wallets[user]:
         if wallets[user][selected_wallet]["UAH"] < 1:
             print("ERROR: Your balance is empty!")
@@ -131,7 +121,7 @@ def withdraw(wallets, selected_wallet, user, json_data, json_passwords):
         print("ERROR: User or wallet is not found")
 
 
-def sign_up(wallets, json_passwords, json_cfg, json_data):
+def sign_up(wallets: dict[object, object], json_passwords: dict[object, object], json_cfg: dict[object, object], json_data: dict[object, object]):
     while True:
         username = input("  Enter username: ")
         password = input("  Enter password: ")
@@ -168,7 +158,7 @@ def sign_up(wallets, json_passwords, json_cfg, json_data):
             print("ERROR: Username is already exists!")
 
 
-def log_in(wallets, json_cfg, json_password):
+def log_in(wallets: dict[object, object], json_cfg: dict[object, object], json_password: dict[object, object]):
     while True:
         username = input("  Enter username: ")
         password = input("  Enter password: ")
@@ -182,7 +172,7 @@ def log_in(wallets, json_cfg, json_password):
             print("ERROR: Invalid username or password!")
 
 
-def start_screen(wallets, json_cfg, json_passwords, json_data):
+def start_screen(wallets: dict[object, object], json_cfg: dict[object, object], json_passwords: dict[object, object], json_data: dict[object, object]):
     choice = None
     print("Welcome in the BankApp!")
 
@@ -202,7 +192,7 @@ def log_out(wallets, user, json_cfg):
     dump_to_json("cfg", json_cfg)
 
 
-def choices(wallets, user, currencies, selected_wallet, json_cfg, logged, json_data, json_passwords):
+def choices(wallets: dict[object, object], user: str, currencies: dict[str, int], selected_wallet: str, json_cfg: dict[object, object], logged: str, json_data: dict[object, object], json_passwords: dict[object, object]):
     while logged:
         print("\nChoose an action:")
         print("1. Select wallet")
