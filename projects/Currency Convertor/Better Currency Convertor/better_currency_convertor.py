@@ -1,6 +1,5 @@
 import json
 import os
-from random import choice
 
 
 # ---JSON---
