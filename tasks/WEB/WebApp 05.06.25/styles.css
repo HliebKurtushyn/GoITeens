@@ -1,0 +1,87 @@
+/* Загальні стилі */
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    margin: 20px;
+    padding: 0;
+    text-align: center;
+}
+
+/* Стилі заголовків */
+h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Введення та кнопка */
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Результати пошуку */
+#result {
+    font-size: 18px;
+    color: #28a745;
+    margin-top: 20px;
+}
+
+/* Список пісень */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+}
+
+ul li {
+    background: #fff;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border-left: 5px solid #007bff;
+    transition: 0.3s;
+}
+
+ul li:hover {
+    background: #e9ecef;
+    cursor: pointer;
+}
+
+/* Навігація */
+nav {
+    margin-top: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    background: #218838;
+}

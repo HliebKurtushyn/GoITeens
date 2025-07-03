@@ -1,0 +1,18 @@
+<h1>My tasks</h1>
+
+{%if tasks|length > 0%}
+    <ul>
+        {%for task in tasks%}
+            <li>{{task.name}}
+                {%if task.completed%}
+                    ✅  
+                {%else%}
+                    ❌
+                {%endif%}
+            </li>
+        {%endfor%}
+    </ul>
+{%else%}
+    <h1>There's no tasks!</h1>
+{%endif%}
+

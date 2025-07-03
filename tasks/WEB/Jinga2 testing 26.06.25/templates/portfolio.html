@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>Глєб Куртушин</h1>
+    <p>Trainee Python Developer</p>
+
+    <h1>{{title}}</h1>
+
+    <ul>
+        {%for work in portfolio%}
+        <li>
+            {%if work.year < 2023%} Old {%else%} New {%endif%}
+            <b>{{work.working}}, {{work.year}}</b>
+        </li>
+        {%endfor%}
+    </ul>
+</body>
+</html>
