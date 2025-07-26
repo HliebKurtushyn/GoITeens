@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event - Main Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+    <h1>Welcome on the main page!</h1>
+    <br>
+    <ul>
+        <li><a href="{{ url_for('register') }}">Register on the event</a></li>
+        <li><a href="{{ url_for('participants') }}">All participiants</a></li>
+    </ul>
+</body>
+</html>
