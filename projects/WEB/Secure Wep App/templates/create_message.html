@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% set category, message = messages[0] %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endif %}
+{% endwith %}
+    <form method="post">
+        <p>Текст повідомлення:</p>
+        <textarea name="text"></textarea>
+        <button type="submit">Відправити</button>
+    </form>
+</body>
+</html>

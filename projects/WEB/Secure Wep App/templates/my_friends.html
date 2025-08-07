@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2></h2>
+    {%for name in data%}
+        <div>
+            <p>{{name}}</p>
+            <a href="/create_message/{{name}}">Написати повідомлення</a>
+        </div>
+    {%endfor%}
+</body>
+</html>

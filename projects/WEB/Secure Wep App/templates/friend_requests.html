@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% set category, message = messages[0] %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endif %}
+{% endwith %}
+    {%for id,name in data.items()%}
+    <div>
+        <p>Запит від: {{name}}</p>
+        <form method="post" action="/friend_requests_confirm">
+            <input type="submit" name="result" value="yes">
+            <input type="hidden" name="id" value="{{id}}">
+        </form>
+        <form method="post" action="/friend_requests_confirm">
+            <input type="submit" name="result" value="no">
+            <input type="hidden" name="id" value="{{id}}">
+        </form>
+    </div>
+    {%endfor%}
+</body>
+</html>

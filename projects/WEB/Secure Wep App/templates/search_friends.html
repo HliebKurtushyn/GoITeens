@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% set category, message = messages[0] %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endif %}
+{% endwith %}
+<form method="post">
+    <input type="text" name="name" placeholder="Ім'я користувача">
+    <button type="submit">Запит на дружбу</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {%for name, text in data.items()%}
+        <div>
+            <h3>{{name}}</h3>
+            <pre>{{text}}</pre>
+        </div>
+    {%endfor%}
+</body>
+</html>
