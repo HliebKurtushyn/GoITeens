@@ -15,10 +15,12 @@
     <div>
         <p>Запит від: {{name}}</p>
         <form method="post" action="/friend_requests_confirm">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
             <input type="submit" name="result" value="yes">
             <input type="hidden" name="id" value="{{id}}">
         </form>
         <form method="post" action="/friend_requests_confirm">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
             <input type="submit" name="result" value="no">
             <input type="hidden" name="id" value="{{id}}">
         </form>

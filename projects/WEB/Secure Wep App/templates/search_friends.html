@@ -12,6 +12,7 @@
     {% endif %}
 {% endwith %}
 <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
     <input type="text" name="name" placeholder="Ім'я користувача">
     <button type="submit">Запит на дружбу</button>
 </form>
